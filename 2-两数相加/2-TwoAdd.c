@@ -65,7 +65,7 @@ int main(){
     end->next = NULL;
     struct ListNode *l2 = h2->next;
     //得到两个链表l1和l2
-
+    //最后功能函数
     struct ListNode *ret = addTwoNumbers(l1,l2);
 
     p = ret;
