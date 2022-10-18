@@ -76,6 +76,10 @@ list_t *insertList(int *arr, int size)
     {
         return NULL;
     }
+    if (size == 0)
+    {
+        return NULL;
+    }
     list_t *list = (list_t *)malloc(sizeof(list_t));
     list_t *pList = list;
     list_t *p = NULL;
