@@ -40,21 +40,7 @@ stack_t *arrToStack(int *arr, int size)
     }
     return stack;
 }
-int is_empty(stack_t *stack)
-{
-    if (!stack)
-    {
-        return -1;
-    }
-    if (stack->count == 0)
-    {
-        return 0;
-    }
-    else
-    {
-        return 1;
-    }
-}
+
 int insertNode(stack_t *stack, int val)
 {
     if (!stack)
@@ -70,7 +56,7 @@ int insertNode(stack_t *stack, int val)
 
 void popStack(stack_t *stack)
 {
-    if (is_empty(stack)!= -1 && is_empty(stack) == 0)
+    if (!stack)
     {
         return;
     }
@@ -78,7 +64,7 @@ void popStack(stack_t *stack)
     stack->top = pNode->next;
     pNode->next = NULL;
     stack->count--;
-    printf ("%d", pNode->val);
+    printf ("val = %d\n", pNode->val);
     free(pNode);
     pNode = NULL;
 }
@@ -98,21 +84,11 @@ void priStack(stack_t *stack)
 }
 int main(int argc, char *argv[])
 {
-    stack_t *stack = (stack_t *)malloc(sizeof(stack_t));
-    stack->count = 0;
-    stack->top = NULL;
-    int a=1234;
-    int b;
-    while (a!=0)
-    {
-        b = a%2;
-        insertNode(stack, b);
-        a = a/2;
-    }
-    while(stack->count!=0)
-    {
-        popStack(stack);
-    }
-    printf ("\n");
+    int arr[10] = {2,5,1,3,6,7,9,8,0,4};
+    stack_t *stack = arrToStack(arr, 10);
+    priStack(stack);
+    printf ("count = %d\n", stack->count);
+    popStack(stack);
+    priStack(stack);
     return 0;
 }
