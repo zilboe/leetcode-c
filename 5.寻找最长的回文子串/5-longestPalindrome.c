@@ -119,10 +119,6 @@ bool isHuiWen(map_t *map)
     }
     return true;
 }
-char *longestPalindrome(char * s)
-{
-    
-}
 int main(int argc, const char *argv[])
 {
     //1.创建表
